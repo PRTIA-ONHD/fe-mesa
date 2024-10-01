@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "antd/dist/reset.css";
 import "./globals.css";
-import Header from  '../components/header'
+import Header from '../components/header'
 
 import Footer from '../components/footer'
 
@@ -32,11 +32,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="flex flex-col justify-center items-center min-h-50  bg-green-100  ">
+        <header className="flex flex-col justify-center items-center p-4 sm:p-2 md:p-4  bg-green-100  ">
           <Header />
         </header >
         {children}
-        <footer className="flex flex-col justify-center items-center bg-green-100 pt-3 ">
+        <footer className="flex flex-col justify-center items-center p-4 sm:p-2 md:p-4  bg-green-100  ">
           <Footer />
         </footer>
       </body>

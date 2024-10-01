@@ -6,6 +6,7 @@ import { Form, Input, Select, Button, Space, Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
 import type { RcFile, UploadFile } from 'antd/es/upload/interface';
+import { Card } from 'antd';
 
 interface FormPetValues {
   petName: string;
@@ -49,10 +50,11 @@ export default function Pet() {
     localStorage.setItem('petValues', JSON.stringify(values));
 
     const { ...otherValues } = values;  // แยกฟิลด์ file ออก
-  const queryParams = new URLSearchParams(otherValues as any).toString();
+    const queryParams = new URLSearchParams(otherValues as any).toString();
 
-  // ส่งไปหน้าถัดไปพร้อม query string
-  router.push(`/owner?${queryParams}`); };
+    // ส่งไปหน้าถัดไปพร้อม query string
+    router.push(`/owner?${queryParams}`);
+  };
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
@@ -103,8 +105,8 @@ export default function Pet() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-green-100 space-y-6">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-lg w-full text-black">
+    <div className="flex flex-col items-center p-4 sm:p-2 md:p-4 bg-green-100">
+      <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
         <h1 className="text-2xl font-bold mb-6">ข้อมูลสัตว์เลี้ยง</h1>
         <Form
           name="trigger"
@@ -119,17 +121,17 @@ export default function Pet() {
             label="ชื่อสัตว์ (Pet Name)"
             name="petName"
             rules={[
-              { 
-                required: true, 
-                message: 'โปรดระบุชื่อ' 
+              {
+                required: true,
+                message: 'โปรดระบุชื่อ'
               },
-              { 
-                pattern: /^[ก-ฮA-Za-z\u0E00-\u0E7F\s]+$/, 
-                message: 'กรุณากรอกชื่อในรูปแบบตัวอักษรเท่านั้น' 
+              {
+                pattern: /^[ก-ฮA-Za-z\u0E00-\u0E7F\s]+$/,
+                message: 'กรุณากรอกชื่อในรูปแบบตัวอักษรเท่านั้น'
               },
-              { 
-                max: 150, 
-                message: 'ชื่อของสัตว์เลี้ยงต้องไม่เกิน 150 ตัวอักษร!' 
+              {
+                max: 150,
+                message: 'ชื่อของสัตว์เลี้ยงต้องไม่เกิน 150 ตัวอักษร!'
               },
             ]}
           >
@@ -188,17 +190,17 @@ export default function Pet() {
             label="ชนิดสัตว์ (Species)"
             name="species"
             rules={[
-              { 
-                required: true, 
-                message: 'โปรดระบุชนิด' 
+              {
+                required: true,
+                message: 'โปรดระบุชนิด'
               },
-              { 
-                pattern: /^[ก-ฮA-Za-z\u0E00-\u0E7F\s]+$/, 
-                message: 'กรุณากรอกชื่อในรูปแบบตัวอักษรเท่านั้น!' 
+              {
+                pattern: /^[ก-ฮA-Za-z\u0E00-\u0E7F\s]+$/,
+                message: 'กรุณากรอกชื่อในรูปแบบตัวอักษรเท่านั้น!'
               },
-              { 
-                max: 150, 
-                message: 'ชื่อของสัตว์เลี้ยงต้องไม่เกิน 150 ตัวอักษร!' 
+              {
+                max: 150,
+                message: 'ชื่อของสัตว์เลี้ยงต้องไม่เกิน 150 ตัวอักษร!'
               },
             ]}
           >
@@ -256,15 +258,18 @@ export default function Pet() {
             label="สี (Color)"
             name="color"
             rules={[
-              { 
-                required: true, 
-                message: 'โปรดระบุสีหรือลาย' },
-              { 
-                pattern: /^[ก-ฮA-Za-z\u0E00-\u0E7F\s]+$/, 
-                message: 'กรุณากรอกชื่อในรูปแบบตัวอักษรเท่านั้น!' },
-              { 
-                max: 150, 
-                message: 'ชื่อของสัตว์เลี้ยงต้องไม่เกิน 150 ตัวอักษร!' },
+              {
+                required: true,
+                message: 'โปรดระบุสีหรือลาย'
+              },
+              {
+                pattern: /^[ก-ฮA-Za-z\u0E00-\u0E7F\s]+$/,
+                message: 'กรุณากรอกชื่อในรูปแบบตัวอักษรเท่านั้น!'
+              },
+              {
+                max: 150,
+                message: 'ชื่อของสัตว์เลี้ยงต้องไม่เกิน 150 ตัวอักษร!'
+              },
             ]}
           >
             <Input placeholder="Color" />
@@ -304,19 +309,8 @@ export default function Pet() {
               </button>
             </div>
           </Form.Item>
-
-          {/* <div className="flex justify-end max-w-lg w-full text-black ">
-            <Link href={"/owner"}>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
-                type="submit"
-              >
-                Next
-              </button>
-            </Link>
-          </div> */}
-
         </Form>
-      </div>
+      </Card>
     </div>
   );
 }

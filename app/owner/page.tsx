@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Form, Input, message } from 'antd';
 import Link from 'next/link';
+import { Card } from 'antd';
 import { useSearchParams } from 'next/navigation';
 
 interface FormOwnerValues {
@@ -51,8 +52,8 @@ export default function Owner() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center min-h-screen bg-green-100 space-y-6">
-            <div className="bg-white p-8 rounded-lg shadow-md max-w-lg w-full text-black">
+        <div className="flex flex-col items-center p-4 sm:p-2 md:p-4 bg-green-100">
+            <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
                 <h1 className="text-2xl font-bold mb-6">ข้อมูลเจ้าของสัตว์เลี้ยง</h1>
                 <Form
                     form={form}
@@ -192,7 +193,7 @@ export default function Owner() {
                         </div>
                     </Form.Item>
                 </Form>
-            </div>
+            </Card>
         </div>
     );
 }

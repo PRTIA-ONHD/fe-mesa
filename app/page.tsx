@@ -6,9 +6,10 @@ import Image from 'next/image';
 export default function Home() {
 
   return (
-    <div className="flex flex-col justify-center items-center p-5 shadow-md w-full min-h-screen bg-green-100">
-      <Card title="ยินดีต้อนรับสู่คลีนิคของเรา" bordered={false} className="w-full max-w-md md:max-w-lg mx-auto">
-        <div className="w-full">
+    <div className="flex flex-col items-center p-4 sm:p-2 md:p-4 bg-green-100">
+      <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
+        <h3 className="text-xl sm:text-2xl font-semibold mb-4">ยินดีต้อนรับสู่คลินิกของเรา</h3>
+        <div className="w-full mb-4">
           <Image
             src="/clinic.jpg"
             layout="responsive"

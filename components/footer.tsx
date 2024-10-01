@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <div className=" p-2 flex items-center justify-between max-w-lg w-full text-black">
+        <div className=" flex items-center justify-between text-black  w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
             <div className="flex items-center">
                 <Image
                     src="/Call.png"
