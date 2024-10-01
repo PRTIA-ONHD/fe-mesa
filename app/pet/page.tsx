@@ -231,7 +231,7 @@ export default function Pet() {
 
           <Form.Item
             hasFeedback
-            label="วันเดือนปี เกิด (DD/MM/YYYY)"
+            label="วันเดือนปี เกิด (YYYY/MM/DD)"
             name="birthdate"
             rules={[
               {
