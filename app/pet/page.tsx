@@ -49,10 +49,9 @@ export default function Pet() {
     message.success('Form saved successfully!');
     localStorage.setItem('petValues', JSON.stringify(values));
 
-    const { ...otherValues } = values;  // แยกฟิลด์ file ออก
+    const { ...otherValues } = values;  
     const queryParams = new URLSearchParams(otherValues as any).toString();
 
-    // ส่งไปหน้าถัดไปพร้อม query string
     router.push(`/owner?${queryParams}`);
   };
 

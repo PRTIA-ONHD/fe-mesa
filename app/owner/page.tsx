@@ -26,9 +26,8 @@ export default function Owner() {
     });
     const searchParams = useSearchParams();
 
-    // ดึงข้อมูลจาก query string
+    // ดึง query string
     const formDataPet = Object.fromEntries(searchParams.entries());
-    //   console.log('Received pet form data: ', formDataPet);
 
     useEffect(() => {
         const savedValues = localStorage.getItem('ownerValues');

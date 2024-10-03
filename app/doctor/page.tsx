@@ -28,9 +28,8 @@ export default function Doctor() {
 
   const searchParams = useSearchParams();
 
-  // ดึงข้อมูลจาก query string
+  // ดึงquery string
   const formData = Object.fromEntries(searchParams.entries());
-  // console.log('Received pat and owner form data: ', formData);
 
   useEffect(() => {
     const savedForm = localStorage.getItem('doctorValues');
